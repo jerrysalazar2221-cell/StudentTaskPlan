@@ -92,18 +92,7 @@ export default function TaskCard({task,index,toggleTask,
       </Pressable>
 
 
-      {/* Delete Button */}
-
-      <Pressable
-        style={styles.deleteButton}
-        onPress={() => deleteTask(index)}
-      >
-
-        <Text style={styles.buttonText}>
-          Delete Assignment
-        </Text>
-
-      </Pressable>
+      
 
     </View>
   );
