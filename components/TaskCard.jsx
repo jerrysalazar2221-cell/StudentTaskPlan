@@ -1,108 +1,86 @@
 
-// TASK CARD COMPONENTS PART
-import {Text,View,Pressable,} from 'react-native';
+// TASK CARD COMPONENT
+import { Text, View, Pressable } from 'react-native';
+import { useTasks } from '../context/TaskContext';
 import styles from './TaskCardStyle';
 
+// TASK CARD
+export default function TaskCard({ task, onEdit }) {
 
-//TASKCARD
+  // GET SHARED FUNCTIONS FROM CONTEXT API
+  const { toggleTask, deleteTask } = useTasks();
 
-export default function TaskCard({task,index,toggleTask,
-                setSelectedTask,setScreen,deleteTask,}) {
   return (
-
     <View style={styles.taskCard}>
 
-      {/* Task Header this will see the header*/}
-
+      {/* TASK HEADER */}
       <View style={styles.taskHeader}>
 
         <Text style={styles.taskTitle}>
           {task.assignment}
         </Text>
 
-
-        {/* Task Status */}
-
+        {/* TASK STATUS */}
         <View
-          style={task.completed ? styles.completedBadge: styles.pendingBadge}
+          style={
+            task.completed
+              ? styles.completedBadge
+              : styles.pendingBadge
+          }
         >
-
           <Text
-            style={task.completed? styles.completedBadgeText: styles.pendingBadgeText}
+            style={
+              task.completed
+                ? styles.completedBadgeText
+                : styles.pendingBadgeText
+            }
           >
-
-            {task.completed? 'Completed' : 'Pending'}
-
+            {task.completed ? 'Completed' : 'Pending'}
           </Text>
-
         </View>
 
       </View>
 
-
-      {/* Subject */}
-
+      {/* SUBJECT */}
       <Text style={styles.taskInfo}>
-        📚 {task.subject}
+        {task.subject}
       </Text>
 
-
-      {/* Deadline */}
-
+      {/* DEADLINE */}
       <Text style={styles.taskInfo}>
-        📅 {task.deadline}
+        {task.deadline}
       </Text>
 
-
-      {/* Complete / Pending Button */}
-
+      {/* COMPLETE / PENDING BUTTON */}
       <Pressable
         style={styles.completeButton}
-        onPress={() => toggleTask(index)}
+        onPress={() => toggleTask(task.id)}
       >
-
         <Text style={styles.buttonText}>
-
           {task.completed
             ? 'Mark as Pending'
             : 'Mark Complete'}
-
         </Text>
-
       </Pressable>
 
-
-      {/* Edit Button */}
-
+      {/* EDIT BUTTON */}
       <Pressable
         style={styles.editButton}
-        onPress={() => {
-
-          setSelectedTask(task);
-
-          setScreen('edit');
-
-        }}
+        onPress={() => onEdit(task)}
       >
-
         <Text style={styles.buttonText}>
           Edit Assignment
         </Text>
-
       </Pressable>
 
-
-      {/* Delete Button */}
-
+      {/* DELETE BUTTON */}
       <Pressable
         style={styles.deleteButton}
-        onPress={() => deleteTask(index)}
+        onPress={() => deleteTask(task.id)}
       >
-
         <Text style={styles.buttonText}>
           Delete Assignment
         </Text>
-
       </Pressable>
 
     </View>

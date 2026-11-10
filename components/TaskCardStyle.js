@@ -1,7 +1,4 @@
-// ==========================================
 // TASK CARD STYLES
-// ==========================================
-
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -11,13 +8,18 @@ const styles = StyleSheet.create({
   // ==========================================
 
   taskCard: {
-    backgroundColor: '#F8FBFF',
+    backgroundColor: '#f8f4f6',
     borderWidth: 1,
-    borderColor: '#DCE9F5',
+    borderColor: '#eceef0',
     borderRadius: 14,
     padding: 16,
     marginTop: 15,
   },
+
+
+  // ==========================================
+  // TASK HEADER
+  // ==========================================
 
   taskHeader: {
     flexDirection: 'row',
@@ -25,11 +27,21 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
 
+
+  // ASSIGNMENT NAME
+  //
+  // task.assignment from TaskCard.jsx
+  // displays the assignment name entered
+  // by the user.
+  //
+  // Example output:
+  // Mathematics Activity
+
   taskTitle: {
     flex: 1,
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#12355B',
+    color: '#172554',
     marginRight: 10,
   },
 
@@ -38,12 +50,17 @@ const styles = StyleSheet.create({
   // STATUS BADGES
   // ==========================================
 
+  // PENDING STATUS
+
   pendingBadge: {
     backgroundColor: '#E3F2FD',
     paddingVertical: 6,
     paddingHorizontal: 10,
     borderRadius: 20,
   },
+
+
+  // COMPLETED STATUS
 
   completedBadge: {
     backgroundColor: '#E8F5E9',
@@ -52,11 +69,17 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
 
+
+  // PENDING TEXT
+
   pendingBadgeText: {
     color: '#1565C0',
     fontSize: 11,
     fontWeight: 'bold',
   },
+
+
+  // COMPLETED TEXT
 
   completedBadgeText: {
     color: '#2E7D32',
@@ -69,15 +92,19 @@ const styles = StyleSheet.create({
   // TASK INFORMATION
   // ==========================================
 
+  // This displays:
+  // 1. Subject
+  // 2. Deadline
+
   taskInfo: {
     fontSize: 14,
-    color: '#687585',
+    color: '#475569',
     marginTop: 10,
   },
 
 
   // ==========================================
-  // BUTTONS
+  // COMPLETE / PENDING BUTTON
   // ==========================================
 
   completeButton: {
@@ -88,6 +115,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
+
+  // ==========================================
+  // EDIT BUTTON
+  // ==========================================
+
   editButton: {
     backgroundColor: '#F9A825',
     padding: 11,
@@ -96,6 +128,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
+
+  // ==========================================
+  // DELETE BUTTON
+  // ==========================================
+
   deleteButton: {
     backgroundColor: '#D32F2F',
     padding: 11,
@@ -103,6 +140,11 @@ const styles = StyleSheet.create({
     marginTop: 8,
     alignItems: 'center',
   },
+
+
+  // ==========================================
+  // BUTTON TEXT
+  // ==========================================
 
   buttonText: {
     color: '#FFFFFF',

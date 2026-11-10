@@ -1,7 +1,5 @@
-// ==========================================
-// EDIT TASK STYLES
-// ==========================================
 
+// EDIT TASK STYLES
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({

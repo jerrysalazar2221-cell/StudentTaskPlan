@@ -1,40 +1,18 @@
-// ==========================================
-// ADD TASK SCREEN
-// ==========================================
-
 import { useState } from 'react';
-
-import {
-  ScrollView,
-  View,
-  Text,
-  TextInput,
-  Pressable,
+import {ScrollView,View,Text,TextInput,Pressable,
 } from 'react-native';
-
 import styles from './AddTaskStyle';
 
-
-// ==========================================
 // ADD TASK COMPONENT
-// ==========================================
-
 export default function AddTask({ setScreen, addTask }) {
 
-  // ==========================================
   // FORM STATES
-  // ==========================================
-
   const [assignment, setAssignment] = useState('');
   const [subject, setSubject] = useState('');
   const [deadline, setDeadline] = useState('');
   const [error, setError] = useState('');
 
-
-  // ==========================================
   // ADD ASSIGNMENT
-  // ==========================================
-
   const handleAddTask = () => {
 
     if (
@@ -53,12 +31,9 @@ export default function AddTask({ setScreen, addTask }) {
       subject,
       deadline,
     });
-  };
+  }; 
 
-
-  // ==========================================
   // SCREEN
-  // ==========================================
 
   return (
     <ScrollView
@@ -121,7 +96,7 @@ export default function AddTask({ setScreen, addTask }) {
 
         <TextInput
           style={styles.input}
-          placeholder="e.g. September 30, 2026"
+          placeholder="e.g. September 30, 20"
           placeholderTextColor="#9AA7B5"
           value={deadline}
           onChangeText={(text) => {
@@ -129,8 +104,6 @@ export default function AddTask({ setScreen, addTask }) {
             setError('');
           }}
         />
-
-
         {/* ERROR */}
 
         {error !== '' && (

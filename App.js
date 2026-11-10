@@ -1,9 +1,6 @@
-
 // STUDENT TASK PLAN MAIN APP
-
 import { useState } from 'react';
-import {ScrollView,Text,View,Pressable,} from 'react-native';
-
+import {ScrollView,Text,View,Pressable,} from 'react-native'
 import AddTask from './screens/AddTask';
 import EditTask from './screens/EditTask';
 import TaskCard from './components/TaskCard';
@@ -11,40 +8,25 @@ import styles from './styles/AppStyle';
 
 
 // MAIN APP COMPONENT
-
 export default function App() {
 
-  // ==========================================
   // APP STATES
-  // ==========================================
-
   const [screen, setScreen] = useState('home');
-
-  const [tasks, setTasks] = useState([]);
-
+  const [tasks, setTasks] = useState([]);//ginagamit para mag store at mag-update ng changing data
   const [selectedTask, setSelectedTask] = useState(null);
 
 
-  // ==========================================
-  // TASK SUMMARY
-  // ==========================================
-
+  // TASK SUMMARY control the lenght of total
   const totalTasks = tasks.length;
-
   const completedTasks = tasks.filter(
     (task) => task.completed
   ).length;
 
   const pendingTasks =
     totalTasks - completedTasks;
-
-
-  // ==========================================
+ 
   // ADD TASK
-  // ==========================================
-
   const addTask = (newTask) => {
-
     setTasks([
       ...tasks,
       {
@@ -56,13 +38,8 @@ export default function App() {
     setScreen('home');
   };
 
-
-  // ==========================================
   // UPDATE TASK
-  // ==========================================
-
   const updateTask = (updatedTask) => {
-
     const updatedTasks = tasks.map(
       (task) =>
         task === selectedTask
@@ -71,49 +48,29 @@ export default function App() {
     );
 
     setTasks(updatedTasks);
-
     setSelectedTask(null);
-
     setScreen('home');
   };
 
-
-  // ==========================================
-  // COMPLETE / PENDING TASK
-  // ==========================================
-
+  // COMPLETE / PENDING TASK     
   const toggleTask = (index) => {
-
-    const updatedTasks = [...tasks];
-
+    const updatedTasks = [...tasks]; 
     updatedTasks[index].completed =
       !updatedTasks[index].completed;
-
     setTasks(updatedTasks);
   };
 
-
-  // ==========================================
   // DELETE TASK
-  // ==========================================
-
   const deleteTask = (index) => {
-
     const updatedTasks = tasks.filter(
       (_, taskIndex) =>
         taskIndex !== index
     );
-
     setTasks(updatedTasks);
   };
 
-
-  // ==========================================
   // ADD SCREEN
-  // ==========================================
-
   if (screen === 'add') {
-
     return (
       <AddTask
         setScreen={setScreen}
@@ -121,12 +78,8 @@ export default function App() {
       />
     );
   }
-
-
-  // ==========================================
+  
   // EDIT SCREEN
-  // ==========================================
-
   if (
     screen === 'edit' &&
     selectedTask
@@ -140,12 +93,8 @@ export default function App() {
       />
     );
   }
-
-
-  // ==========================================
+  
   // HOME SCREEN
-  // ==========================================
-
   return (
     <ScrollView
       style={styles.scroll}
@@ -182,21 +131,15 @@ export default function App() {
       {/* Task Summary */}
 
       <View style={styles.summaryCard}>
-
         <Text style={styles.sectionTitle}>
           Task Summary
         </Text>
-
         <View style={styles.summaryRow}>
-
           {/* Total */}
-
           <View style={styles.summaryBox}>
-
             <Text style={styles.summaryNumber}>
               {totalTasks}
             </Text>
-
             <Text style={styles.summaryLabel}>
               Total
             </Text>
@@ -205,9 +148,7 @@ export default function App() {
 
 
           {/* Completed */}
-
           <View style={styles.summaryBox}>
-
             <Text style={styles.summaryNumber}>
               {completedTasks}
             </Text>
@@ -222,41 +163,30 @@ export default function App() {
           {/* Pending */}
 
           <View style={styles.summaryBox}>
-
             <Text style={styles.summaryNumber}>
               {pendingTasks}
             </Text>
-
             <Text style={styles.summaryLabel}>
               Pending
             </Text>
-
           </View>
 
         </View>
 
       </View>
 
-
       {/* Assignments */}
-
       <View style={styles.tasksCard}>
-
         <Text style={styles.sectionTitle}>
           My Assignments
         </Text>
 
-
         {/* Empty State */}
 
         {tasks.length === 0 ? (
-
           <View style={styles.emptyContainer}>
-
             <Text style={styles.emptyIcon}>
-              📚
             </Text>
-
             <Text style={styles.emptyTitle}>
               No assignments yet
             </Text>
@@ -288,6 +218,7 @@ export default function App() {
 
       </View>
 
-    </ScrollView>
+    </ScrollView> 
   );
 }
+

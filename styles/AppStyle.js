@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
 
   emptyText: {
     fontSize: 14,
-    color: '#687585',
+    color: '#111213',
     marginTop: 5,
     textAlign: 'center',
   },
